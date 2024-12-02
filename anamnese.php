@@ -291,7 +291,7 @@ echo "Anamnese salva com sucesso!";
 
          /* Estilo para os botões de seleção (estilo como no Tabagista) */
         .select-group {
-            display: flex;
+            display: flex; 
             gap: 10px;
         }
 
