@@ -278,7 +278,18 @@ echo "Anamnese salva com sucesso!";
     </script>
     </script>
     <style>
-        /* Estilo para os botões de seleção (estilo como no Tabagista) */
+         body {
+            font-family: 'Arial', sans-serif;
+            color: #120;
+            margin: 0;
+            height: 1140vh;
+            display: flex;
+            flex-direction: column; /* Permite que os itens fiquem empilhados */
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
+        }
+
+         /* Estilo para os botões de seleção (estilo como no Tabagista) */
         .select-group {
             display: flex;
             gap: 10px;
@@ -314,28 +325,38 @@ echo "Anamnese salva com sucesso!";
     <h2>Cadastro de Anamnese</h2>
     <form action="anamnese.php" method="POST">
         <!-- Dados Pessoais -->
+         
         <label for="data_avaliacao">Data da Avaliação:</label>
         <input type="date" name="data_avaliacao" value="<?php echo date('Y-m-d'); ?>" readonly><br><br>
-
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" required><br><br>
-
+        
+        <label for="nome">Nome:</label><br>
+        <input type="text" name="nome" required>
+        <br>
         <label for="endereco">Endereço:</label>
-        <textarea name="endereco" required></textarea><br><br>
-
+        <br>
+        <textarea name="endereco" required></textarea>
+        <br>
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" required><br><br>
-
+        <br>
+        <input type="text" name="telefone" required>
+        <br>
         <label for="peso">Peso:</label>
-        <input type="number" step="0.01" name="peso" required><br><br>
-
+        <br>
+        <input type="number" step="0.01" name="peso" required>
+        <br>
         <label for="altura">Altura:</label>
-        <input type="number" step="0.01" name="altura" required><br><br>
-
+        <br>
+        <input type="number" step="0.01" name="altura" required>
+        <br>
         <label for="data_nascimento">Data de Nascimento:</label>
-        <input type="date" name="data_nascimento" required><br><br>
+        <br>
+        <br>
+        <input type="date" name="data_nascimento" required>
+        <br>
+        <br>
 
-        <label for="genero">Gênero:</label><br>
+        <label for="genero">Gênero:</label>
+        <br>
         <div class="select-group">
             <input type="radio" id="masculino" name="genero" value="Masculino" onchange="toggleGestacaoFields()" required>
             <label for="masculino">Masculino</label>
@@ -348,7 +369,7 @@ echo "Anamnese salva com sucesso!";
         </div><br><br>
 
         <!-- Campos Condicionais para Mulheres e Outros Gêneros -->
-        <div id="gestacao_fields" style="display:none;">
+        <div id="gestacao_fields">
             <label for="gestacao">Número de Gestações:</label>
             <input type="number" name="gestacao" min="0"><br><br>
 
@@ -428,124 +449,199 @@ echo "Anamnese salva com sucesso!";
 
 
         <!-- Comorbidades, Medicamentos, Diagnóstico, etc. -->
-        <label for="comorbidades">Comorbidades:</label>
-        <textarea name="comorbidades"></textarea><br><br>
+        <label for="comorbidades">Comorbidades:</label><br>
+        <textarea name="comorbidades"></textarea><br>
+        <br>
 
-        <label for="medicamentos_uso_continuo">Medicamentos de Uso Contínuo:</label>
-        <textarea name="medicamentos_uso_continuo"></textarea><br><br>
+        <label for="medicamentos_uso_continuo">Medicamentos de Uso Contínuo:</label><br>
+        <textarea name="medicamentos_uso_continuo"></textarea><br>
+        <br>
 
-        <label for="medicamentos_atuais">Medicamentos Atuais:</label>
-        <textarea name="medicamentos_atuais"></textarea><br><br>
+        <label for="medicamentos_atuais">Medicamentos Atuais:</label><br>
+        <textarea name="medicamentos_atuais"></textarea><br>
+        <br>
 
-        <label for="tratamentos_complementares">Tratamentos Complementares:</label>
-        <textarea name="tratamentos_complementares"></textarea><br><br>
+        <label for="tratamentos_complementares">Tratamentos Complementares:</label><br>
+        <textarea name="tratamentos_complementares"></textarea><br>
+        <br>
 
-        <label for="diagnostico_clinico">Diagnóstico Clínico:</label>
-        <textarea name="diagnostico_clinico"></textarea><br><br>
+        <label for="diagnostico_clinico">Diagnóstico Clínico:</label><br>
+        <textarea name="diagnostico_clinico"></textarea><br>
+        <br>
 
         <label for="cid">CID:</label>
-        <input type="text" name="cid"><br><br>
+        <input type="text" name="cid"><br>
+        <br>
 
-        <label for="queixa_principal">Queixa Principal:</label>
-        <textarea name="queixa_principal" required></textarea><br><br>
+        <label for="queixa_principal">Queixa Principal:</label><br>
+        <textarea name="queixa_principal" required></textarea><br>
+        <br>
 
-        <label for="outras_queixas">Outras Queixas:</label>
-        <textarea name="outras_queixas"></textarea><br><br>
+        <label for="outras_queixas">Outras Queixas:</label><br>
+        <textarea name="outras_queixas"></textarea><br>
+        <br>
 
         <!-- História da Doença e Outros Campos -->
-        <label for="historia_doenca_atual">História da Doença Atual (HDA):</label>
-        <textarea name="historia_doenca_atual"></textarea><br><br>
+        <label for="historia_doenca_atual">História da Doença Atual (HDA):</label><br>
+        <textarea name="historia_doenca_atual"></textarea><br>
+        <br>
 
-        <label for="historia_doenca_pregressa">História da Doença Pregressa (HDP):</label>
-        <textarea name="historia_doenca_pregressa"></textarea><br><br>
+        <label for="historia_doenca_pregressa">História da Doença Pregressa (HDP):</label><br>
+        <textarea name="historia_doenca_pregressa"></textarea><br>
+        <br>
 
-        <label for="antecedentes_cirurgicos">Antecedentes Cirúrgicos:</label>
-        <textarea name="antecedentes_cirurgicos"></textarea><br><br>
+        <label for="antecedentes_cirurgicos">Antecedentes Cirúrgicos:</label><br>
+        <textarea name="antecedentes_cirurgicos"></textarea><br>
+        <br>
 
-        <label for="atividades_afetadas_fatores_ambientais">Atividades Afetadas e Influência de Fatores Ambientais:</label>
-        <textarea name="atividades_afetadas_fatores_ambientais"></textarea><br><br>
+        <label for="atividades_afetadas_fatores_ambientais">Atividades Afetadas e Influência de Fatores Ambientais:</label><br>
+        <textarea name="atividades_afetadas_fatores_ambientais"></textarea><br>
+        <br>
 
         <h3>Avaliação Postural</h3>
-    
     <label for="cabeca">Cabeça:</label><br>
     <input type="radio" name="cabeca" value="Alinhada"> Alinhada
+    <br>
     <input type="radio" name="cabeca" value="Rodada"> Rodada
-    <input type="radio" name="cabeca" value="Inclinada"> Inclinada<br><br>
+    <br>
+    <input type="radio" name="cabeca" value="Inclinada"> Inclinada
+    <br>
+    <br>
 
     <label for="ombro">Ombro:</label><br>
+    
     <input type="radio" name="ombro" value="Alinhado"> Alinhado
+    <br>
     <input type="radio" name="ombro" value="Elevado D"> Elevado D
+    <br>
     <input type="radio" name="ombro" value="Elevado E"> Elevado E
+    <br>
     <input type="radio" name="ombro" value="Deprimido D"> Deprimido D
-    <input type="radio" name="ombro" value="Deprimido E"> Deprimido E<br><br>
+    <br>
+    <input type="radio" name="ombro" value="Deprimido E"> Deprimido E
+    <br>
+    <br>
 
     <label for="clavicula">Clavícula:</label><br>
     <input type="radio" name="clavicula" value="Alinhada"> Alinhada
+    <br>
     <input type="radio" name="clavicula" value="Elevada D"> Elevada D
+    <br>
     <input type="radio" name="clavicula" value="Elevada E"> Elevada E
+    <br>
     <input type="radio" name="clavicula" value="Saliente D"> Saliente D
-    <input type="radio" name="clavicula" value="Saliente E"> Saliente E<br><br>
+    <br>
+    <input type="radio" name="clavicula" value="Saliente E"> Saliente E
+    <br>
+    <br>
 
     <label for="cotovelo">Cotovelo:</label><br>
     <input type="radio" name="cotovelo" value="Alinhado"> Alinhado
+    <br>
     <input type="radio" name="cotovelo" value="Valgo D"> Valgo D
+    <br>
     <input type="radio" name="cotovelo" value="Valgo E"> Valgo E
+    <br>
     <input type="radio" name="cotovelo" value="Varo D"> Varo D
-    <input type="radio" name="cotovelo" value="Varo E"> Varo E<br><br>
+    <br>
+    <input type="radio" name="cotovelo" value="Varo E"> Varo E
+    <br>
+    <br>
+    
 
     <label for="antebraco">Antebraço:</label><br>
     <input type="radio" name="antebraco" value="Neutros"> Neutros
+    <br>
     <input type="radio" name="antebraco" value="Pronado D"> Pronado D
+    <br>
     <input type="radio" name="antebraco" value="Pronado E"> Pronado E
+    <br>
     <input type="radio" name="antebraco" value="Supinado D"> Supinado D
-    <input type="radio" name="antebraco" value="Supinado E"> Supinado E<br><br>
-
-    <label for="eias">EIAS:</label><br>
+    <br>
+    <input type="radio" name="antebraco" value="Supinado E"> Supinado E
+    <br>
+    <br>
+    <label for="eias">EIAS:</label>
+    <br>
     <input type="radio" name="eias" value="Alinhada"> Alinhada
+    <br>
     <input type="radio" name="eias" value="Mais baixa D"> Mais baixa D
-    <input type="radio" name="eias" value="Mais baixa E"> Mais baixa E<br><br>
-
-    <label for="eips">EIPS:</label><br>
+    <br>
+    <input type="radio" name="eias" value="Mais baixa E"> Mais baixa E
+    <br>
+    <br>
+    <label for="eips">EIPS:</label>
+    <br>
     <input type="radio" name="eips" value="Alinhada"> Alinhada
+    <br>
     <input type="radio" name="eips" value="Mais baixa D"> Mais baixa D
+    <br>
     <input type="radio" name="eips" value="Mais baixa E"> Mais baixa E<br><br>
+    <br>
 
-    <label for="joelhos">Joelhos:</label><br>
+    <label for="joelhos">Joelhos:</label>
+    <br>
     <input type="radio" name="joelhos" value="Alinhados"> Alinhados
+    <br>
     <input type="radio" name="joelhos" value="Valgo D"> Valgo D
+    <br>
     <input type="radio" name="joelhos" value="Valgo E"> Valgo E
+    <br>
     <input type="radio" name="joelhos" value="Varo D"> Varo D
+    <br>
     <input type="radio" name="joelhos" value="Varo E"> Varo E
+    <br>
     <input type="radio" name="joelhos" value="Rot. Medial D"> Rot. Medial D
+    <br>
     <input type="radio" name="joelhos" value="Rot. Medial E"> Rot. Medial E
+    <br>
     <input type="radio" name="joelhos" value="Rot. Lateral D"> Rot. Lateral D
+    <br>
     <input type="radio" name="joelhos" value="Rot. Lateral E"> Rot. Lateral E<br><br>
 
     <label for="patela">Patela:</label><br>
     <input type="radio" name="patela" value="Alinhada"> Alinhada
+    <br>
     <input type="radio" name="patela" value="Lateralizada D"> Lateralizada D
+    <br>
     <input type="radio" name="patela" value="Lateralizada E"> Lateralizada E
+    <br>
     <input type="radio" name="patela" value="Medializada D"> Medializada D
+    <br>
     <input type="radio" name="patela" value="Medializada E"> Medializada E
+    <br>
     <input type="radio" name="patela" value="Elevada D"> Elevada D
+    <br>
     <input type="radio" name="patela" value="Elevada E"> Elevada E<br><br>
 
     <label for="tornozelos">Tornozelos:</label><br>
     <input type="radio" name="tornozelos" value="Alinhados"> Alinhados
+    <br>
     <input type="radio" name="tornozelos" value="Valgo D"> Valgo D
+    <br>
     <input type="radio" name="tornozelos" value="Valgo E"> Valgo E
+    <br>
     <input type="radio" name="tornozelos" value="Varo D"> Varo D
+    <br>
     <input type="radio" name="tornozelos" value="Varo E"> Varo E<br><br>
 
     <label for="pes">Pés:</label><br>
     <input type="radio" name="pes" value="Alinhados"> Alinhados
+    <br>
     <input type="radio" name="pes" value="Valgo D"> Valgo D
+    <br>
     <input type="radio" name="pes" value="Valgo E"> Valgo E
+    <br>
     <input type="radio" name="pes" value="Varo D"> Varo D
+    <br>
     <input type="radio" name="pes" value="Varo E"> Varo E
+    <br>
     <input type="radio" name="pes" value="Plano D"> Plano D
+    <br>
     <input type="radio" name="pes" value="Plano E"> Plano E
+    <br>
     <input type="radio" name="pes" value="Cavo D"> Cavo D
+    <br>
     <input type="radio" name="pes" value="Cavo E"> Cavo E<br><br>
 
     <label for="coluna_cervical">Coluna Cervical:</label><br>
